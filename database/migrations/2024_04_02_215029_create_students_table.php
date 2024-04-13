@@ -13,9 +13,6 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            // $table->integer('group_id')->nullable();
-            // $table->foreignId('group_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
-            // $table->unsignedBigInteger('group_id');
             $table->foreignId('group_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // $table->unsignedBigInteger('group_id');

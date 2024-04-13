@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('title')->default('');
-            $table->date('start_from')->nullable()->default('2023-01-01'); // Уточнить тип
+            $table->date('start_from')->nullable()->default('2023-01-01');
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();
         });
