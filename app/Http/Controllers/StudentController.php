@@ -16,6 +16,7 @@ class StudentController extends Controller
     {
         $students = Student::all();
         $smth = 'Работа метода index StudentController';
+
         return view('student.index', compact('students', 'smth'));
     }
 
@@ -40,6 +41,7 @@ class StudentController extends Controller
         ]);
 
         Student::create($request->all());
+
         // return redirect()->route('student.index')->with('success','Student of Group created successfully.');
         return redirect()->route('group.show', $group)->with('success','Student of Group created successfully.');
     }
@@ -50,10 +52,9 @@ class StudentController extends Controller
     public function show($groupId, $studentId)
     {
         $group = Group::find($groupId);
-        $students = $group->students()->get();
+        $students = $group->students;
         $student = $students->find($studentId);
         $group_title = $student->group->title; // Достаю по связям из другой таблицы значение поля title
-        // $group_title = $student->group()
 
         // return view('student.show', compact('group', 'students', 'student'));
         return view('student.show', compact('student', 'group', 'group_title'));

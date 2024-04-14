@@ -17,7 +17,7 @@
       @csrf
       <div class="form-group">
         <label for="title">title</label>
-        <input type="text" class="form-control" id="title" name="title" required>
+        <input type="text" class="form-control" id="title" name="title">
       </div>
       <div class="form-group">
         <label for="start_from">start_from</label>

@@ -15,10 +15,10 @@ class Group extends Model
         'is_active',
     ];
 
-    public function students() {
+    public function students() 
+    {
         // return $this->hasMany(Student::class, 'group_id'); // foreign key?
         return $this->hasMany(Student::class); // foreign key?
-
     }
 
 }

@@ -13,7 +13,8 @@ class Student extends Model
         'surname',
         'name',
     ];
-    public function group() {
+    public function group() 
+    {
         // return $this->hasOne(Group::class);
         return $this->belongsTo(Group::class);
     }

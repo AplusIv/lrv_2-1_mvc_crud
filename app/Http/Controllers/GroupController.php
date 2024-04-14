@@ -13,6 +13,7 @@ class GroupController extends Controller
     public function index()
     {
         $groups = Group::all();
+        
         return view('group.index', compact('groups'));
     }
 
@@ -21,7 +22,6 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
         return view('group.create');
     }
 
@@ -30,7 +30,6 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
         // Валидация переданных данных
         $request->validate([
             'title' => 'required',
@@ -39,6 +38,7 @@ class GroupController extends Controller
         ]);
 
         Group::create($request->all());
+
         return redirect()->route('group.index')->with('success','Group created successfully.');
     }
 
@@ -49,6 +49,7 @@ class GroupController extends Controller
     {
         $group = Group::find($id);
         $students = $group->students()->get();
+
         return view('group.show', compact('group', 'students'));
         //         return view('group.show', compact('group'));
 
@@ -59,7 +60,6 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        //
         $group = Group::find($id);
         return view('group.edit', compact('group'));
     }
@@ -69,14 +69,15 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
         $request->validate([
             'title' => 'required',
             'start_from' => 'required',
             'is_active' => 'required',
         ]);
+
         $group = Group::find($id);
         $group->update($request->all());
+
         return redirect()->route('group.index')
         ->with('success', 'Post updated successfully.');
     }

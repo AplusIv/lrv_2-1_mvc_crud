@@ -20,8 +20,8 @@ return new class extends Migration
             // ->references('id')->on('groups')
             // ->onDelete('cascade');
 
-            $table->string('surname')->nullable()->default('Pupkin');
-            $table->string('name')->nullable()->default('Vasya');
+            $table->string('surname')->nullable();
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }
